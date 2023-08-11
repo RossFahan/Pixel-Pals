@@ -9,23 +9,23 @@
 </head>
 
 <body>
-  <div class=""></div>
-  <header class="">
-    <h1 class="">Pixel Pets</h1>
-    <nav class="">
-      
+
+  <header>
+    <h1>Pixel Pets</h1>
+    <nav>
+
       {{#if logged_in}}
-      <a href="/pets" id="">Your Pets</a>
-      <button id='logout' class=''>Logout</button>
+      <a href="/pets">Your Pets</a>
+      <button id='logout'>Logout</button>
       {{else}}
-      <a href='/login' id="">Login</a>
+      <a href='/login'>Login</a>
       {{/if}}
     </nav>
   </header>
 
   <main>
-    <div class=''>
-      {{{body}}}
+
+    {{{body}}}
 
   </main>
   {{#if logged_in}}
