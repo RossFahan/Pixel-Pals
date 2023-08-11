@@ -12,8 +12,9 @@ router.post('/addPet/:animalID/', async (req, res) => {
             energy: req.body.energy,
             user_id: req.session.user_id,
             animal_id: req.params.animalID,
+            interaction_id: newInteraction.id,
         });
-        
+
         res.status(201).json(newInteraction);
         res.status(201).json(newPet);
     } catch (err) {
