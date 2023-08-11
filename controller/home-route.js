@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Pet } = require('../models');
+const { User, Pet, Animal } = require('../models');
 
 //Homeroute
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 //User pets
-router.get('/pets', async (req, res) => {
+router.get('/pets', withAtuh, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.id, {
       include: [
@@ -29,6 +29,11 @@ router.get('/pets', async (req, res) => {
     }
     const user = userData.get({ plain: true });
 
+    if (!user.pet) {
+      res.redirect('/adopt');
+      return;
+    }
+
     res.render('pets', {
       ...user,
       logged_in: req.session.logged_in
@@ -40,15 +45,31 @@ router.get('/pets', async (req, res) => {
 });
 
 //Specific Pet
-router.get('/pets/:id', async (req, res) => {
+router.get('/pets/:id', withAuth, async (req, res) => {
   try {
     const petData = await Pet.findByPk(req.params.id)
 
     const pet = petData.get({ plain: true });
+
     res.render('placeholder-for-specific-pet', {
       ...pet,
       logged_in: req.session.logged_in,
     });
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+//Adopt pet
+router.get('/adopt', withAuth, async (req, res) => {
+  try {
+    const animalData = Animal.findAll()
+
+    const animals = animalData.get({ plain: true });
+    res.render('adoption', {
+      ...animals,
+      logged_in: req.resssion.logged_in,
+    })
   } catch (err) {
     res.status(500).json(err)
   }
