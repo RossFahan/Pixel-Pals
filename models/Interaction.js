@@ -12,17 +12,21 @@ Interaction.init (
             autoIncrement: true,
         },
         last_fed: {
-            type: DataTypes.DATE,
+            type: 'TIMESTAMP',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
             allowNull: false,
         },
         last_played: {
-            type: DataTypes.DATE,
+            type: 'TIMESTAMP',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
             allowNull: false,
         },
         last_slept: {
-            type: DataTypes.DATE,
+            type: 'TIMESTAMP',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
             allowNull: false,
         },
+        
     },
     {
         sequelize,
