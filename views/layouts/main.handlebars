@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Pets</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+  <div class=""></div>
+  <header class="">
+    <h1 class="">Pixel Pets</h1>
+    <nav class="">
+      
+      {{#if logged_in}}
+      <a href="/pets" id="">Your Pets</a>
+      <button id='logout' class=''>Logout</button>
+      {{else}}
+      <a href='/login' id="">Login</a>
+      {{/if}}
+    </nav>
+  </header>
+
+  <main>
+    <div class=''>
+      {{{body}}}
+
+  </main>
+  {{#if logged_in}}
+  <script src='/js/logout.js'></script>
+  {{/if}}
+
+</body>
+
+</html>
