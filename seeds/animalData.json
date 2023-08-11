@@ -1,0 +1,42 @@
+[
+  {
+    "types": "Dog",
+    "prefered_food": "Steak",
+    "prefered_activity": "Running"
+  },
+  {
+    "types": "Cat",
+    "prefered_food": "Fish",
+    "prefered_activity": "Petting"
+  },
+  {
+    "types": "Seal",
+    "prefered_food": "Fish",
+    "prefered_activity": "Swimming"
+  },
+  {
+    "types": "Turtle",
+    "prefered_food": "Fruit",
+    "prefered_activity": "Swimming"
+  },
+  {
+    "types": "Snail",
+    "prefered_food": "Vegetable",
+    "prefered_activity": "Reading"
+  },
+  {
+    "types": "Mouse",
+    "prefered_food": "Cheese",
+    "prefered_activity": "Brush"
+  },
+  {
+    "types": "Parrot",
+    "prefered_food": "Seeds",
+    "prefered_activity": "Basketball"
+  },
+  {
+    "types": "Snake",
+    "prefered_food": "Mouse",
+    "prefered_activity": "Motorsports"
+  }
+]
