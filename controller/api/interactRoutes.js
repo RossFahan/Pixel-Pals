@@ -1,26 +1,29 @@
-const router = require('express').Router();
 const { Pet, Interaction } = require('../../models');
+const { updateStats } = require('../../utils/stats');
 
-// Route to feed the pet
 router.post('/feed/:petId', async (req, res) => {
     try {
-        const pet = await Pet.findByPk(req.params.petId);
+        const pet = await Pet.findByPk(req.params.petId, {
+            include: Interaction,
+        });
+
         if (!pet) {
-            return res.status(404).json({ message: 'Pet not found' });
+            return res.status(404).json({ message: 'Pet not found.' });
         }
 
-        // Decrement hunger and update the Interaction's last_fed timestamp
-        pet.hunger = Math.max(0, pet.hunger - 1);
-        const interaction = await Interaction.findByPk(pet.interaction_id);
-        interaction.last_fed = new Date();
-        
-        await pet.save();
-        await interaction.save();
+        // Update pet's stats using the helper function
+        const updatedPet = updateStats(pet);
 
-        res.status(200).json({ message: 'Pet fed successfully' });
+        // Increment pet's hunger when fed
+        updatedPet.hunger = Math.min(100, updatedPet.hunger + HUNGER_INCREMENT_WHEN_FED);
+
+        // Update last_fed timestamp
+        updatedPet.interaction.last_fed = dayjs().toISOString();
+
+        await updatedPet.save();
+
+        res.status(200).json({ message: 'Pet fed successfully.' });
     } catch (err) {
         res.status(500).json(err);
     }
 });
-
-module.exports = router;

@@ -1,28 +1,40 @@
-const decrementPetStats = async (petId) => {
+const dayjs = require('dayjs');
+
+// Constants for stat decrement rates
+const HUNGER_DECREMENT_PER_HOUR = 5;
+const MOOD_DECREMENT_PER_HOUR = 5;
+const ENERGY_DECREMENT_PER_HOUR = 5;
+
+router.post('/feed/:petId', async (req, res) => {
     try {
-        const pet = await Pet.findByPk(petId);
+        const pet = await Pet.findByPk(req.params.petId);
         
-        if (!pet) {
-            throw new Error('Pet not found');
-        }
-
-        // Decrement mood, hunger, and energy
-        pet.mood = Math.max(0, pet.mood - 1);
-        pet.hunger = Math.max(0, pet.hunger - 1);
-        pet.energy = Math.max(0, pet.energy - 1);
+        // Calculate the time difference between last fed and current time in hours
+        const lastFedTime = dayjs(pet.interaction.last_fed);
+        const currentTime = dayjs();
+        const hoursSinceLastFed = currentTime.diff(lastFedTime, 'hour');
         
-        await pet.save();
-
-        // Check if any stat is zero, and delete the pet
-        if (pet.mood === 0 || pet.hunger === 0 || pet.energy === 0) {
-            await Pet.destroy({
-                where: {
-                    id: petId,
-                },
-            });
-            console.log('Pet ran away');
-        }
+        // Calculate the amount to decrement hunger based on time passed
+        const hungerDecrement = hoursSinceLastFed * HUNGER_DECREMENT_PER_HOUR;
+        
+        // Update the pet's hunger, ensuring it doesn't go below 0
+        pet.hunger = Math.max(0, pet.hunger - hungerDecrement);
+        pet.interaction.last_fed = currentTime.toISOString(); // Update last_fed timestamp
+        
+        // Decrement mood and energy similarly
+        
+        const moodDecrement = hoursSinceLastFed * MOOD_DECREMENT_PER_HOUR;
+        pet.mood = Math.max(0, pet.mood - moodDecrement);
+        pet.interaction.last_played = currentTime.toISOString(); // Update last_played timestamp
+        
+        const energyDecrement = hoursSinceLastFed * ENERGY_DECREMENT_PER_HOUR;
+        pet.energy = Math.max(0, pet.energy - energyDecrement);
+        pet.interaction.last_slept = currentTime.toISOString(); // Update last_slept timestamp
+        
+        await pet.save(); // Save changes to the database
+        
+        res.status(200).json({ message: 'Interacted with pet successfully.' });
     } catch (err) {
-        console.error('Error decrementing pet stats:', err);
+        res.status(500).json(err);
     }
-};
+});
