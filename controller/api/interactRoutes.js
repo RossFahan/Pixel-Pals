@@ -1,5 +1,6 @@
 const { Pet, Interaction } = require('../../models');
 const { updateStats } = require('../../utils/stats');
+const router = require('express').Router();
 
 router.post('/feed/:petId', async (req, res) => {
     try {
@@ -11,8 +12,8 @@ router.post('/feed/:petId', async (req, res) => {
             return res.status(404).json({ message: 'Pet not found.' });
         }
 
-        // Update pet's stats using the helper function
-        const updatedPet = updateStats(pet);
+        // Decrement pet's stats based on time elapsed
+        const updatedPet = decrementStats(pet);
 
         // Increment pet's hunger when fed
         updatedPet.hunger = Math.min(100, updatedPet.hunger + HUNGER_INCREMENT_WHEN_FED);
@@ -27,3 +28,5 @@ router.post('/feed/:petId', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
