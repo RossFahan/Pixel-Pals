@@ -23,7 +23,34 @@ router.post('/feed/:petId', async (req, res) => {
 
         await updatedPet.save();
 
-        res.status(200).json({ message: 'Pet fed successfully.' });
+        res.status(200).json(updatedPet, { message: 'Pet fed successfully.' });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.post('/activity/:petId', async (req, res) => {
+    try {
+        const pet = await Pet.findByPk(req.params.petId, {
+            include: Interaction,
+        });
+
+        if (!pet) {
+            return res.status(404).json({ message: 'Pet not found.' });
+        }
+
+        // Decrement pet's stats based on time elapsed
+        const updatedPet = decrementStats(pet);
+
+        // Increment pet's hunger when fed
+        updatedPet.mood = Math.min(100, updatedPet.mood + MOOD_INCREMENT_WHEN_PLAYED);
+
+        // Update last_fed timestamp
+        updatedPet.interaction.last_played = dayjs().toISOString();
+
+        await updatedPet.save();
+
+        res.status(200).json(updatedPet, { message: 'Pet played with successfully.' });
     } catch (err) {
         res.status(500).json(err);
     }
