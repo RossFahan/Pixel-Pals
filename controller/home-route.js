@@ -18,7 +18,8 @@ router.get('/pets', withAtuh, async (req, res) => {
     const userData = await User.findByPk(req.session.id, {
       include: [
         {
-          model: Pet
+          model: Pet,
+          model: Animal
         },
       ],
     });
@@ -34,7 +35,7 @@ router.get('/pets', withAtuh, async (req, res) => {
       return;
     }
 
-    res.render('pets', {
+    res.render('userpets', {
       ...user,
       logged_in: req.session.logged_in
     });

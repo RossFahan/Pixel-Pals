@@ -1,13 +1,20 @@
 {{#each animals}}
-<div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      {{{get_animal types}}}
-    </figure>
+<form class="adopt-form">
+  <div>
+    <input type="text" id="name-adopt" placeholder="Your pet name">
   </div>
-  <h3 align="center" id="name-adopt">{{types}}</h3>
-  <h3 align="center">{{prefered_food}}</h3>
-  <h3 align="center">{{prefered_activity}}</h3>
-</div>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <button type="submit" id="animal-button" animal-id="{{id}}">
+          {{{get_animal types}}}
+        </button>
+      </figure>
+    </div>
+    <h3 align="center">{{types}}</h3>
+    <h3 align="center">{{prefered_food}}</h3>
+    <h3 align="center">{{prefered_activity}}</h3>
+  </div>
+</form>
 {{#each}}
 <script src="adopt.js"></script>
