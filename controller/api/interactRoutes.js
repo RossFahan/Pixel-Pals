@@ -1,6 +1,7 @@
 const { Pet, Interaction } = require('../../models');
 const { updateStats, decrementStats } = require('../../utils/stats');
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 
 router.post('/feed/:petId', async (req, res) => {
     try {
