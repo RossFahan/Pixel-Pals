@@ -1,5 +1,5 @@
 const { Pet, Interaction } = require('../../models');
-const { updateStats } = require('../../utils/stats');
+const { updateStats, decrementStats } = require('../../utils/stats');
 const router = require('express').Router();
 
 router.post('/feed/:petId', async (req, res) => {
@@ -55,5 +55,29 @@ router.post('/activity/:petId', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post('/sleep/:petID', async (req, res) => {
+    try {
+        const pet = await Pet.findByPk(req.params.petID, {
+            include: Interaction,
+        });
+        
+        if(!pet) {
+            return res.status(404).json({ massage: 'Pet not found.' });
+        }
+
+        const updatedPet = decrementStats(pet);
+
+        updatedPet.energy = Math.min(100, updatedPet.enery + ENERGY_INCREMENT_WHEN_PLAYED);
+
+        updatedPet.interaction.last_slept = dayjs().toISOString();
+
+        await updatedPet.save();
+
+        res.status(200).json(updatedPet, { message: 'Pet slept with successfully.'});
+    }  catch (err) {
+        res.status(500).json(err); 
+    }
+})
 
 module.exports = router;
