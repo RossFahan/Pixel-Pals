@@ -5,8 +5,13 @@ signupForm.addEventListener('submit', async (event) => {
 
   const name = document.querySelector('#name-adopt').value;
   //animalID depends on how animal_id is stored on page
-  const animalID = document.querySelector('#animal-id').value;
+  const animalButton = document.querySelector('#animal-button');
+  const animalID = animalButton.getAttribute('animal-id');
 
+  if (!name) {
+    alert('Enter your pet name');
+  }
+  
   try {
     const response = await fetch(`/api/addPet/${animalID}`, {
       method: 'POST',
