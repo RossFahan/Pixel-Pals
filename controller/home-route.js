@@ -49,11 +49,17 @@ router.get('/pets', withAuth , async (req, res) => {
 //Specific Pet
 router.get('/pets/:id', withAuth, async (req, res) => {
   try {
-    const petData = await Pet.findByPk(req.params.id)
+    const petData = await Pet.findByPk(req.params.id, {
+      include: [
+        {
+          model: Animal
+        }
+      ]
+    })
 
     const pet = petData.get({ plain: true });
 
-    res.render('placeholder-for-specific-pet', {
+    res.render('pet', {
       ...pet,
       logged_in: req.session.logged_in,
     });

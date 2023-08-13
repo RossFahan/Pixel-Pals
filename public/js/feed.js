@@ -1,22 +1,36 @@
-const feedAnimal = async (event) => {
-  if (event.target.hasAttribute('food')) {
-    const id = event.target.hasAttribute('id')
-    const food = event.target.hasAttribute('food')
-    const preferedFood = document.querySelector('prefered-food')
-    if (food == preferedFood) {
-      const response = await fetch(`/api/feed/${id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      if (response.ok) {
-        document.querySelector('.hunger') = response.hunger
-      } 
-    } else {
-      console.log('wrong food')
-    }
-  }
-}
+import { Draggable } from 'draggable';
 
-document.querySelector('.food-list').addEventListener('click', feedAnimal)
+const draggableButton = document.querySelector('.draggable-button');
+
+const draggable = new Draggable(draggableButton, {
+  draggable: '.draggable-button',
+  dropzone: '.drop-zone',
+  delay: 100,
+});
+
+draggable.on('droppable:dropped', (event) => {
+  const dropTarget = event.source.dropzone;
+  if (dropTarget == dropzone) {
+    const feedAnimal = async (event) => {
+      if (event.target.hasAttribute('food')) {
+        const id = event.target.hasAttribute('id')
+        const food = event.target.hasAttribute('food')
+        const preferedFood = document.querySelector('prefered-food')
+        if (food == preferedFood) {
+          const response = await fetch(`/api/feed/${id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          if (response.ok) {
+            document.querySelector('.hunger') = response.hunger
+          }
+        } else {
+          console.log('wrong food')
+        }
+      }
+    }
+    document.querySelector('.food-list').addEventListener('click', feedAnimal)
+  }
+});
