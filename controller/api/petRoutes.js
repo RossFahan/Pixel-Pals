@@ -7,15 +7,15 @@ router.post('/addPet/:animalID/', async (req, res) => {
 
         const newPet = await Pet.create({
             name: req.body.name,
-            hunger: req.body.hunger,
-            mood: req.body.mood,
-            energy: req.body.energy,
+            hunger: 100,
+            mood: 100,
+            energy: 100,
             user_id: req.session.user_id,
             animal_id: req.params.animalID,
             interaction_id: newInteraction.id,
         });
 
-        res.status(201).json(newInteraction);
+        //res.status(201).json(newInteraction);
         res.status(201).json(newPet);
     } catch (err) {
         res.status(500).json(err);
