@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Pet, Animal } = require('../models');
+const withAuth = require('../utils/auth');
 
 //Homeroute
 router.get('/', (req, res) => {
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 //User pets
-router.get('/pets', withAtuh, async (req, res) => {
+router.get('/pets', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.id, {
       include: [
@@ -48,11 +49,17 @@ router.get('/pets', withAtuh, async (req, res) => {
 //Specific Pet
 router.get('/pets/:id', withAuth, async (req, res) => {
   try {
-    const petData = await Pet.findByPk(req.params.id)
+    const petData = await Pet.findByPk(req.params.id, {
+      include: [
+        {
+          model: Animal
+        }
+      ]
+    })
 
     const pet = petData.get({ plain: true });
 
-    res.render('placeholder-for-specific-pet', {
+    res.render('pet', {
       ...pet,
       logged_in: req.session.logged_in,
     });

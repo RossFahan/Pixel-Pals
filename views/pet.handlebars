@@ -1,0 +1,24 @@
+<div class="container">
+    <figure class="drop-zone">
+        {{get_animal pet.animal.types}}
+    </figure>
+</div>
+<div class="container">
+    <div class="pet-status">
+        <div class="status-bar hunger">
+            <div class="status-fill" id="hunger-fill"></div>
+        </div>
+        <div class="status-bar mood">
+            <div class="status-fill" id="mood-fill"></div>
+        </div>
+        <div class="status-bar energy">
+            <div class="status-fill" id="energy-fill"></div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="draggable-button" type="button">Feed</div>
+    <button type="button">Play</button>
+    <button type="button">Sleep</button>
+</div>
+<script src="pet.js"></script>
