@@ -32,6 +32,11 @@ Pet.init (
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        is_sleeping: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

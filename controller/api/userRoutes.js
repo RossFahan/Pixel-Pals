@@ -16,16 +16,16 @@ router.post('/login', async (req, res) => {
 
         if (!validPassword) {
             res
-              .status(400)
-              .json({ message: 'Incorrect email or password, please try again' });
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            
+
             res.json({ user: userData, message: 'You are now logged in!' });
-          });
+        });
     } catch (err) {
         res.status(400).json(err);
     }
@@ -33,8 +33,8 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
-        const {username, email, password} = req.body;
-        
+        const { username, email, password } = req.body;
+
         await User.create({
             username,
             email,
