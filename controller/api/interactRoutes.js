@@ -3,12 +3,16 @@ const { updateStats, decrementStats } = require('../../utils/stats');
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
+const HUNGER_INCREMENT_WHEN_FED = 10;  
+const MOOD_INCREMENT_WHEN_PLAYED = 15; 
+const ENERGY_INCREMENT_WHEN_SLEEP = 20; 
+
 router.post('/feed/:petId', async (req, res) => {
     try {
         const pet = await Pet.findByPk(req.params.petId, {
             include: Interaction,
         });
-
+å
         if (!pet) {
             return res.status(404).json({ message: 'Pet not found.' });
         }
@@ -69,7 +73,7 @@ router.post('/sleep/:petID', async (req, res) => {
 
         const updatedPet = decrementStats(pet);
 
-        updatedPet.energy = Math.min(100, updatedPet.enery + ENERGY_INCREMENT_WHEN_PLAYED);
+        updatedPet.energy = Math.min(100, updatedPet.enery + ENERGY_INCREMENT_WHEN_SLEEP);
 
         updatedPet.interaction.last_slept = dayjs().toISOString();
 
