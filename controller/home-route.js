@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User, Pet, Animal } = require('../models');
 const withAuth = require('../utils/auth');
+const updateStatusBars = require('../public/js/statusbar');
+const decrementStats = require('../utils/stats');
 
 //Homeroute
 router.get('/', (req, res) => {
@@ -47,8 +49,12 @@ router.get('/pets', withAuth, async (req, res) => {
       return;
     }
 
+        // // Call the decrementStats function for each pet in the user's pets array
+        // const updatedPets = user.pets.map(pet => decrementStats(pet));
+
     res.render('userpets', {
       ...user,
+     // pets: updatedPets,  // pets with updated stats
       logged_in: req.session.logged_in
     });
 
@@ -69,6 +75,10 @@ router.get('/pets/:id', withAuth, async (req, res) => {
     })
 
     const pet = petData.get({ plain: true });
+
+        // Update pet stats and update display of status bars
+        decrementStats(pet);
+        updateStatusBars(pet);
 
     res.render('pet', {
       ...pet,
