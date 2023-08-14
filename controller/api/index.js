@@ -5,7 +5,7 @@ const interactRoutes = require('./interactRoutes')
 
 router.use('/users', userRoutes);
 router.use('/pets', petRoutes);
-router.use('/')
+router.use('/',interactRoutes)
 
 
 module.exports = router;
