@@ -1,4 +1,6 @@
-const { Pet } = require('../../models');
+
+//pet data passed directly from route
+//const { Pet } = require('../../models');
 
 function updateStatusBars(pet) {
     updateHungerBar(pet);
