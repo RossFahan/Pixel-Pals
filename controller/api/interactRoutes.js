@@ -1,5 +1,5 @@
 const { Pet, Interaction } = require('../../models');
-const { decrementStats } = require('../../utils/stats');
+const decrementStats = require('../../utils/stats');
 const router = require('express').Router();
 const dayjs = require('dayjs');
 const withAuth = require('../../utils/auth');
