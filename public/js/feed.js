@@ -26,7 +26,7 @@ interact(dropZone)
   .dropzone({
     ondrop: function (event) {
       const droppedElement = event.relatedTarget;
-      console.log(droppedElement.id + ' was dropped in ');
+      console.log(droppedElement.id + ' was dropped into ' + dropZone.id);
     },
   });
 
