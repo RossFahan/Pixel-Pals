@@ -41,7 +41,7 @@ router.post('/signup', async (req, res) => {
             password
         })
 
-        res.redirect('/login');
+        res.redirect('/adoption'); // Server-side redirect
     } catch (err) {
         res.status(500).json(err);
     }

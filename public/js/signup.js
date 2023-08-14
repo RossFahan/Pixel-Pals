@@ -16,7 +16,7 @@ signupForm.addEventListener('submit', async (event) => {
 
     if (response.ok) {
       // Redirect to the adoption page after successful signup
-      res.redirect('/adoption');
+    //  window.location.href = '/adoption'; // Client-side redirect
     } else {
       alert('Signup failed. Please try again.');
     }
