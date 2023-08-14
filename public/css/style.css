@@ -1,8 +1,16 @@
+html {
+  background-image: url(../assets/images/background2.jpg);
+  background-size: cover;
+}
 .pet-status {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
+.animal-button {
+  border: none;
+  background: none;
+}
   
   .status-bar {
     width: 100px;
@@ -17,4 +25,17 @@
     width: 0;
     transition: width 0.3s;
   }
+  .card-equal-height {
+    min-height: 100%; 
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    backdrop-filter: blur(8px); /* Apply blur effect */
+}
+.adoption-font {
+  font-family: 'Cherry Bomb One', cursive;
+}
+ 
+
   
