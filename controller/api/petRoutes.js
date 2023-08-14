@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Pet, Interaction } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.post('/addPet/:animalID/', async (req, res) => {
     try {
@@ -21,4 +22,27 @@ router.post('/addPet/:animalID/', async (req, res) => {
         res.status(500).json(err);
     }
 })
+
+// Route for Pet running away
+router.delete('/runaway/:petID', async (req, res) => {
+    try {
+        const petID = req.params.petID;
+
+        // Fetch the pet's data from the database
+        const pet = await Pet.findByPk(petID);
+
+        if (!pet) {
+            return res.status(404).json({ message: 'Pet not found' });
+        }
+
+        // Delete the pet from the database
+        await Pet.destroy({ where: { id: petID } });
+
+        // You might want to clear the session or perform other cleanup here
+
+        res.json({ message: 'Pet has run away!' });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 module.exports = router;

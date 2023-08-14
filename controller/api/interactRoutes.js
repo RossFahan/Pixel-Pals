@@ -2,10 +2,10 @@ const { Pet, Interaction } = require('../../models');
 const { decrementStats } = require('../../utils/stats');
 const router = require('express').Router();
 const dayjs = require('dayjs');
+const withAuth = require('../../utils/auth');
 
 const HUNGER_INCREMENT_WHEN_FED = 10;
 const MOOD_INCREMENT_WHEN_PLAYED = 15;
-const ENERGY_INCREMENT_WHEN_SLEEP = 10;
 
 router.post('/feed/:petId', async (req, res) => {
     try {
