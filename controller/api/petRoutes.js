@@ -38,8 +38,6 @@ router.delete('/runaway/:petID', async (req, res) => {
         // Delete the pet from the database
         await Pet.destroy({ where: { id: petID } });
 
-        // You might want to clear the session or perform other cleanup here
-
         res.json({ message: 'Pet has run away!' });
     } catch (err) {
         res.status(500).json(err);
