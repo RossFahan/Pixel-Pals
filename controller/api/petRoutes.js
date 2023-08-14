@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Pet, Interaction } = require('../../models');
 
-router.post('/addPet/:animalID/', async (req, res) => {
+router.post('/addPet/:animalID', async (req, res) => {
     try {
         const newInteraction = await Interaction.create()
 
