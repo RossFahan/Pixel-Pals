@@ -25,7 +25,7 @@ router.get('/pets', withAuth, async (req, res) => {
           include: [
             {
               model: Animal,
-              attributes: ['types']
+              // attributes: ['types']
             }
           ],
         }, 
@@ -42,10 +42,10 @@ router.get('/pets', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     console.log(user);
 
-    // if (!user.pet) {
-    //   res.redirect('/adopt');
-    //   return;
-    // }
+    if (!user.pets) {
+      res.redirect('/adopt');
+      return;
+    }
 
     res.render('userpets', {
       ...user,
