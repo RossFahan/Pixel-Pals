@@ -1,7 +1,6 @@
 const dayjs = require('dayjs');
 const handleRunaway = require('./runaway'); 
 
-
 // Constants for stat decrement rates (in minutes)
 const HUNGER_DECREMENT_PER_MINUTE = 5;
 const MOOD_DECREMENT_PER_MINUTE = 5;
@@ -10,18 +9,6 @@ const ENERGY_INCREMENT_PER_MINUTE_WHEN_SLEEPING = 10;
 
 function decrementStats(pet) {
     const currentTime = dayjs();
-
-    if (pet.hunger === 0 || pet.mood === 0 || pet.energy === 0) {
-        console.log('Pet is running away!');
-        handleRunaway(pet.id); // Call the handleRunaway function to delete the pet
-        return null; // Return null to stop further stat updates
-    }
-
-    if (pet.hunger === 0 || pet.mood === 0 || pet.energy === 0) {
-        console.log('Pet is running away!');
-        handleRunaway(pet.id); // Call the handleRunaway function to delete the pet
-
-    }
 
     // Calculate the time difference between interactions and current time in minutes
     const minutesSinceLastFed = currentTime.diff(pet.interaction.last_fed, 'minute');
@@ -44,7 +31,7 @@ function decrementStats(pet) {
 
     // Increase energy stat if the pet is sleeping, else decrement
 
-    if (pet.is_sleeping) {
+    if (pet.is_sleeping && pet.energy > 0) {
         console.log(`Increasing energy due to sleep`);
         pet.energy = Math.min(100, pet.energy + energyIncrement);
 
@@ -60,6 +47,14 @@ function decrementStats(pet) {
     else { // Pet not sleeping
         pet.energy = Math.max(0, pet.energy - energyDecrement);
     }
+
+
+    if (pet.hunger === 0 || pet.mood === 0 || pet.energy === 0) {
+        console.log('Pet is running away!');
+        handleRunaway(pet.id); // Call the handleRunaway function to delete the pet
+        return null; // Return null to stop further stat updates
+    }
+
     return pet;
 }
 
