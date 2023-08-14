@@ -1,14 +1,42 @@
-import { Draggable } from 'draggable';
+const draggableButton = document.querySelectorAll('.draggable-button');
 
-const draggableButton = document.querySelector('.draggable-button');
+draggableButton.forEach((btn) => {
+  interact(btn).draggable({
+    listeners: {
+      start(event) {
+        event.interaction.startOffset = { x: 0, y: 0 };
+      },
+      move(event) {
+        const { x, y } = event.interaction.startOffset;
+        const dx = event.pageX - event.clientX0;
+        const dy = event.pageY - event.clientY0;
+        event.target.style.transform = `translate(${x + dx}px, ${y + dy}px)`;
+      },
+      end(event) {
+        event.target.style.transform = 'translate(0px, 0px)';
+      },
+    },
+  });
+})
 
-const draggable = new Draggable(draggableButton, {
+
+const dropZone = document.querySelector('.drop-zone');
+
+interact(dropZone)
+  .dropzone({
+    ondrop: function (event) {
+      const droppedElement = event.relatedTarget;
+      console.log(droppedElement.id + ' was dropped in ');
+    },
+  });
+
+/* const draggable = new Draggable(draggableButton, {
   draggable: '.draggable-button',
   dropzone: '.drop-zone',
   delay: 100,
 });
-
-draggable.on('droppable:dropped', (event) => {
+ */
+/* draggable.on('droppable:dropped', (event) => {
   const dropTarget = event.source.dropzone;
   if (dropTarget == dropzone) {
     const feedAnimal = async (event) => {
@@ -33,4 +61,4 @@ draggable.on('droppable:dropped', (event) => {
     }
     document.querySelector('.food-list').addEventListener('click', feedAnimal)
   }
-});
+}); */

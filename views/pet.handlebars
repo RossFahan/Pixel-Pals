@@ -20,11 +20,36 @@
     </div>
 </div>
 <div>
-    <button class="draggable-button" type="button">Feed</button>
-    <button type="button">Play</button>
+{{!--     <button class="" type="button">Feed</button> --}}
+
+    <div class="dropdown">
+        <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                Food    
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+                {{{get_food 'Steak'}}}
+                {{{get_food 'Fish'}}}
+                {{{get_food 'Fruit'}}}
+                {{{get_food 'Vegetable'}}}
+                {{{get_food 'Cheese'}}}
+                {{{get_food 'Seeds'}}}
+                {{{get_food 'Mouse'}}}
+
+
+            </div>
+            
+        </div>
+    </div>
+
+
+    <button class="activity-list" type="button">Play</button>
     <button type="button">Sleep</button>
 </div>
 
 <script src="/js/feed.js"></script>
 <script src="/js/play.js"></script>
-<script src="/js/statusbar.js"></script>
+{{!--
+<script src="/js/statusbar.js"></script> --}}
