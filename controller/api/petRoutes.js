@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Pet, Interaction } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/addPet/:animalID/', async (req, res) => {
+router.post('/addPet/:animalID', async (req, res) => {
     try {
         const newInteraction = await Interaction.create()
 

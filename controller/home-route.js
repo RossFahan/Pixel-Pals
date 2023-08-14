@@ -16,28 +16,36 @@ router.get('/', (req, res) => {
 //User pets
 router.get('/pets', withAuth, async (req, res) => {
   try {
-    console.log(req.session.user_id)
+    // console.log(req.session.user_id)
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [
         {
-          model: Pet
-        }, /* {
-          model: Animal
-        }, */
+          model: Pet,
+          include: [
+            {
+              model: Animal,
+              attributes: ['types']
+            }
+          ],
+        }, 
+        // {
+        //   model: Animal
+        // },
       ],
     });
-    console.log(userData)
+    // console.log(userData)
     if (!userData) {
       console.log('No User');
       return res.status(404).json
     }
     const user = userData.get({ plain: true });
+    console.log(user);
 
-    if (!user.pet) {
-      res.redirect('/adopt');
-      return;
-    }
+    // if (!user.pet) {
+    //   res.redirect('/adopt');
+    //   return;
+    // }
 
     res.render('userpets', {
       ...user,

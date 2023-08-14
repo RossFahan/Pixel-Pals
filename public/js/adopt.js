@@ -13,7 +13,7 @@ signupForm.addEventListener('submit', async (event) => {
   }
   
   try {
-    const response = await fetch(`/api/addPet/${animalID}`, {
+    const response = await fetch(`/api/pets/addPet/${animalID}`, {
       method: 'POST',
       body: JSON.stringify({ name }),
       headers: { 'Content-Type': 'application/json' },
@@ -21,7 +21,8 @@ signupForm.addEventListener('submit', async (event) => {
 
     if (response.ok) {
       // Redirect to the adoption page after successful signup
-      res.redirect('/pets');
+      // res.redirect('/pets');
+      document.location.replace('/pets');
     } else {
       alert('Adoption failed. Please try again.');
     }
