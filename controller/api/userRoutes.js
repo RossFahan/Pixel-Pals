@@ -36,16 +36,34 @@ router.post('/signup', async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
+        // Create the user
         await User.create({
             username,
             email,
             password
-        })
+        });
 
-        res.redirect('/adopt'); // Server-side redirect
+        // Fetch user data from the database
+        const userData = await User.findOne({ where: { username } });
+
+        if (!userData) {
+            console.log('User data not found');
+            return res.status(400).json({ message: 'User data not found' });
+        }
+
+        // Save the session and redirect
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+
+            res.json({ user: userData, message: 'You are now logged in!' });
+        });
+
     } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
-})
+});
 
 module.exports = router;
