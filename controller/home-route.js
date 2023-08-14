@@ -42,7 +42,7 @@ router.get('/pets', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     console.log(user);
 
-    if (!user.pets) {
+    if (user.pets.length == 0) {
       res.redirect('/adopt');
       return;
     }
