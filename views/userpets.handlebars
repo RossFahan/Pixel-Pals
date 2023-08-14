@@ -1,5 +1,4 @@
 <h2>Pets</h2>
-
 {{#each pets}}
 <form class="user-pet-form">
     <div class="card">
@@ -8,7 +7,7 @@
                 <a href="/pets/{{id}}">{{{get_animal animal.types}}}</a>
             </figure>
         </div>
-        <h3 align="center">{{user.pet.name}}</h3>
+        <h3 align="center">{{name}}</h3>
     </div>
 </form>
 {{/each}}
