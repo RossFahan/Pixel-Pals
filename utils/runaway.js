@@ -1,4 +1,4 @@
-const { Pet } = require('../../models'); // Adjust the path as needed
+const { Pet } = require('../models'); // Adjust the path as needed
 
 async function handleRunaway(petID) {
     try {
@@ -19,4 +19,4 @@ async function handleRunaway(petID) {
     }
 }
 
-module.exports = { handleRunaway };
+module.exports =  handleRunaway;

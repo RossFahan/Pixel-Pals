@@ -63,6 +63,4 @@ function decrementStats(pet) {
     return pet;
 }
 
-module.exports = {
-    decrementStats
-};
+module.exports = decrementStats;
