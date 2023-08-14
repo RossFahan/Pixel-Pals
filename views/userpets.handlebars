@@ -1,13 +1,15 @@
-<h2>Pets</h2>
-{{#each pets}}
-<form class="user-pet-form">
-    <div class="card">
+<div class="container">
+    <h2 class="title is-2 has-text-centered">Pets</h2>
+    {{#each pets}}
+    <form class="user-pet-form">
+      <div class="card is-flex is-flex-direction-column is-justify-content-center card-equal-height transparent-blur-card">
         <div class="card-image">
-            <figure class="image is-4by3">
-                <a href="/pets/{{id}}">{{{get_animal animal.types}}}</a>
-            </figure>
+          <figure class="image is-4by3">
+            <a href="/pets/{{id}}">{{{get_animal animal.types}}}</a>
+          </figure>
         </div>
-        <h3 align="center">{{name}}</h3>
-    </div>
-</form>
-{{/each}}
+        <h3 class="title is-4 has-text-centered">{{name}}</h3>
+      </div>
+    </form>
+    {{/each}}
+  </div>
