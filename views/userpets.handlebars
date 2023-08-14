@@ -1,14 +1,13 @@
 <h2>Pets</h2>
-
 {{#each pets}}
 <form class="user-pet-form">
     <div class="card">
         <div class="card-image">
             <figure class="image is-4by3">
-                <a href="/pet/{{id}}">{{{get_animal animal.types}}}</a>
+                <a href="/pets/{{id}}">{{{get_animal animal.types}}}</a>
             </figure>
         </div>
-        <h3 align="center">{{user.pet.name}}</h3>
+        <h3 align="center">{{name}}</h3>
     </div>
 </form>
 {{/each}}
