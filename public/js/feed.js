@@ -12,10 +12,10 @@ draggable.on('droppable:dropped', (event) => {
   const dropTarget = event.source.dropzone;
   if (dropTarget == dropzone) {
     const feedAnimal = async (event) => {
-      if (event.target.hasAttribute('food')) {
-        const id = event.target.hasAttribute('id')
-        const food = event.target.hasAttribute('food')
-        const preferedFood = document.querySelector('prefered-food')
+      if (event.target.getAttribute('food')) {
+        const id = event.target.getAttribute('id')
+        const food = event.target.getAttribute('food')
+        const preferedFood = document.querySelector('.prefered-food')
         if (food == preferedFood) {
           const response = await fetch(`/api/feed/${id}`, {
             method: 'POST',
