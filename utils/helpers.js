@@ -2,21 +2,21 @@ module.exports = {
     get_animal: (type) => {
         switch (type) {
             case 'Dog':
-                return '<img src="./public/assets/images/dog.gif" alt="Placeholder image">';
+                return '<img src="/assets/images/dog.gif" alt="Placeholder image">';
             case 'Cat':
-                return '<img src="./public/assets/images/cat.png" alt="Placeholder image">';
+                return '<img src="/assets/images/cat.png" alt="Placeholder image">';
             case 'Seal':
-                return '<img src="./public/assets/images/seal.gif" alt="Placeholder image">';
+                return '<img src="/assets/images/seal.gif" alt="Placeholder image">';
             case 'Turtle':
-                return '<img src="./public/assets/images/turtle.gif" alt="Placeholder image">';
+                return '<img src="/assets/images/turtle.gif" alt="Placeholder image">';
             case 'Snail':
-                return '<img src="./public/assets/images/snail.gif" alt="Placeholder image">';
+                return '<img src="/assets/images/snail.gif" alt="Placeholder image">';
             case 'Mouse':
-                return '<img src="./public/assets/images/mouse.gif" alt="Placeholder image">';
+                return '<img src="/assets/images/mouse.gif" alt="Placeholder image">';
             case 'Parrot':
-                return '<img src="./public/assets/images/parrot.png" alt="Placeholder image">';
-            case 'snake':
-                return '<img src="./public/assets/images/snake.gif" alt="Placeholder image">';
+                return '<img src="/assets/images/parrot.png" alt="Placeholder image">';
+            case 'Snake':
+                return '<img src="/assets/images/snake.gif" alt="Placeholder image">';
         }
     },
 

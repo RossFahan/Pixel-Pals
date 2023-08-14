@@ -18,7 +18,7 @@ router.get('/pets', withAuth, async (req, res) => {
   try {
     console.log(req.session.user_id)
     const userData = await User.findByPk(req.session.user_id, {
-      /* attributes: { exclude: ['password'] }, */
+      attributes: { exclude: ['password'] },
       include: [
         {
           model: Pet
@@ -74,12 +74,12 @@ router.get('/pets/:id', withAuth, async (req, res) => {
 //Adopt pet
 router.get('/adopt', withAuth, async (req, res) => {
   try {
-    const animalData = Animal.findAll()
+    const animalData = await Animal.findAll()
 
-    const animals = animalData.get({ plain: true });
+    const animals = animalData.map(animal => animal.get({ plain: true }));
     res.render('adoption', {
-      ...animals,
-      logged_in: req.resssion.logged_in,
+      animals,
+      logged_in: req.session.logged_in,
     })
   } catch (err) {
     res.status(500).json(err)
