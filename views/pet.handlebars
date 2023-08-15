@@ -2,7 +2,7 @@
     <h2>{{name}}</h2>
 </div>
 <div class="container">
-    <figure class="drop-zone">
+    <figure class="drop-zone" id="{{animal.prefered_food}}" data-id="{{id}}">
         {{{get_animal animal.types}}}
     </figure>
 </div>
@@ -20,12 +20,12 @@
     </div>
 </div>
 <div>
-{{!--     <button class="" type="button">Feed</button> --}}
+    {{!-- <button class="" type="button">Feed</button> --}}
 
     <div class="dropdown">
         <div class="dropdown-trigger">
             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-                Food    
+                Food
             </button>
         </div>
         <div class="dropdown-menu" id="dropdown-menu3" role="menu">
@@ -37,10 +37,8 @@
                 {{{get_food 'Cheese'}}}
                 {{{get_food 'Seeds'}}}
                 {{{get_food 'Mouse'}}}
-
-
             </div>
-            
+
         </div>
     </div>
 

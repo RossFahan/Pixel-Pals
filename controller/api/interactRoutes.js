@@ -37,7 +37,7 @@ router.post('/feed/:petId', async (req, res) => {
         interaction.last_fed = updatedPet.interaction.last_fed;
         await interaction.save();
 
-        res.status(200).json(updatedPet, { message: 'Pet fed successfully.' });
+        res.status(200).json(/* updatedPet,  */{ message: 'Pet fed successfully.' });
     } catch (err) {
         res.status(500).json(err);
     }

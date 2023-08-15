@@ -1,5 +1,6 @@
 const draggableButton = document.querySelectorAll('.draggable-button');
 
+
 draggableButton.forEach((btn) => {
   interact(btn).draggable({
     listeners: {
@@ -24,9 +25,23 @@ const dropZone = document.querySelector('.drop-zone');
 
 interact(dropZone)
   .dropzone({
-    ondrop: function (event) {
+    ondrop: async function (event) {
       const droppedElement = event.relatedTarget;
       console.log(droppedElement.id + ' was dropped into ' + dropZone.id);
+      const id = dropZone.getAttribute('data-id')
+      console.log(id)
+      if (droppedElement.id == dropZone.id) {
+        console.log('Prefered Food')
+        const response = await fetch(`/api/feed/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.ok) {
+          document.querySelector('.hunger') = response.hunger
+        }
+      }
     },
   });
 
@@ -44,16 +59,7 @@ interact(dropZone)
         const id = event.target.getAttribute('id')
         const food = event.target.getAttribute('food')
         const preferedFood = document.querySelector('.prefered-food')
-        if (food == preferedFood) {
-          const response = await fetch(`/api/feed/${id}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
-          if (response.ok) {
-            document.querySelector('.hunger') = response.hunger
-          }
+        
         } else {
           console.log('wrong food')
         }
