@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Pet, Animal, Interaction } = require('../models');
 const withAuth = require('../utils/auth');
-const updateStatusBars = require('../public/js/statusbar');
+//const updateStatusBars = require('../public/js/statusbar');
 const decrementStats = require('../utils/stats');
 
 //Homeroute
