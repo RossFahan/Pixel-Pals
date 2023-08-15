@@ -6,32 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Pets</title>
   <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
-
   <header>
-    <h1>Pixel Pets</h1>
-    <nav>
+    <nav class="navbar blurred-navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <h1 class="navbar-item title is-2" style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen;">Pixel Pets</h1>
+      </div>
 
-      {{#if logged_in}}
-      <a href="/adopt">Adopt a Pet</a>
-      <a href="/pets">Your Pets</a>
-      <button id='logout'>Logout</button>
-      {{/if}}
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          {{#if logged_in}}
+          <a href="/adopt" class="navbar-item no-hover" style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen;">Adopt a Pet</a>
+          <a href="/pets" class="navbar-item no-hover" style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen;">Your Pets</a>
+          <div class="navbar-item">
+            <button id="logout" class="button is-danger is-light">Logout</button>
+          </div>
+          {{/if}}
+        </div>
+      </div>
     </nav>
   </header>
 
-  <main>
-
+  <main style="background-image: url(../../public/assets/images/background2.jpg);">
     {{{body}}}
-
   </main>
+
   {{#if logged_in}}
   <script src='/js/logout.js'></script>
   {{/if}}
-
 </body>
 
 </html>

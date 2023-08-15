@@ -1,20 +1,54 @@
+html {
+  background-image: url(../assets/images/background2.jpg);
+  background-size: cover;
+}
+
 .pet-status {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .status-bar {
-    width: 100px;
-    height: 20px;
-    border: 1px solid #aaa;
-    position: relative;
-  }
-  
-  .status-fill {
-    height: 100%; 
-    background-color: #3cb371; /* Green */
-    width: 0;
-    transition: width 0.3s;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.animal-button {
+  border: none;
+  background: none;
+}
+
+.status-bar {
+  width: 100px;
+  height: 20px;
+  border: 1px solid #aaa;
+  position: relative;
+}
+
+.status-fill {
+  height: 100%;
+  background-color: #3cb371;
+  /* Green */
+  width: 0;
+  transition: width 0.3s;
+}
+
+.card-equal-height {
+  min-height: 100%;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Transparent white background */
+  backdrop-filter: blur(8px);
+  /* Apply blur effect */
+}
+
+.navbar {
+background-color: transparent;
+
+}
+.navbar-item{
+  font-size: 1.3em;
+}
+.navbar-item.no-hover:hover {
+  background-color: transparent;
+  color: inherit;
+  font-size: 3em;
+}
