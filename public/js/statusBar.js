@@ -1,8 +1,9 @@
 
 //pet data passed directly from route
-//const { Pet } = require('../../models');
+const { Pet } = require('../../models');
 
 function updateStatusBars(pet) {
+    (console.log("stat pet", pet));
     updateHungerBar(pet);
     updateMoodBar(pet);
     updateEnergyBar(pet);
@@ -10,7 +11,10 @@ function updateStatusBars(pet) {
 
 function updateHungerBar(pet) {
     const hungerFillElement = document.getElementById('hunger-fill');
+    (console.log("stat pet hunger", pet.hunger));
     const hungerLevel = pet.hunger;
+
+    (console.log("stat pet hunger", pet.hunger));
 
     hungerFillElement.style.width = `${hungerLevel}%`;
 
@@ -26,7 +30,7 @@ function updateHungerBar(pet) {
 function updateMoodBar(pet) {
     const moodFillElement = document.getElementById('mood-fill');
     const moodLevel = pet.mood;
-
+    (console.log("stat pet mood", pet.mood));
     moodFillElement.style.width = `${moodLevel}%`;
 
     if (moodLevel < 30) {
@@ -41,6 +45,7 @@ function updateMoodBar(pet) {
 function updateEnergyBar(pet) {
     const energyFillElement = document.getElementById('energy-fill');
     const energyLevel = pet.energy;
+    (console.log("stat pet hunger", pet.energy));
 
     energyFillElement.style.width = `${energyLevel}%`;
 
