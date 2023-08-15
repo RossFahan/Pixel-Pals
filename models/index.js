@@ -22,7 +22,8 @@ Pet.belongsTo(Interaction, {
     onDelete: 'CASCADE'
 });
 Interaction.hasOne(Pet, {
-    foreignKey: 'interaction_id'
+    foreignKey: 'interaction_id',
+    onDelete: 'CASCADE'
 })
 
 module.exports = { User, Animal, Pet, Interaction };
