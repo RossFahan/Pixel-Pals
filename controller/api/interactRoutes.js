@@ -12,7 +12,7 @@ router.post('/feed/:petId', async (req, res) => {
         const pet = await Pet.findByPk(req.params.petId, {
             include: [{ model: Interaction }],
         });
-        //console.log(pet)
+        console.log(pet)
         if (!pet) {
             return res.status(404).json({ message: 'Pet not found.' });
         }
@@ -26,7 +26,7 @@ router.post('/feed/:petId', async (req, res) => {
         updatedPet.hunger = Math.min(100, updatedPet.hunger + HUNGER_INCREMENT_WHEN_FED);
 
         // Update last_fed timestamp
-        console.log(updatedPet.interaction)
+        console.log("asd",updatedPet)
         updatedPet.interaction.last_fed = dayjs().toISOString();
 
         await updatedPet.save();
@@ -55,7 +55,7 @@ router.post('/activity/:petId', async (req, res) => {
         if (!pet) {
             return res.status(404).json({ message: 'Pet not found.' });
         }
-
+    
         // Interaction wakes up pet
         pet.is_sleeping = false;
 

@@ -38,7 +38,7 @@ router.delete('/runaway/:petID', async (req, res) => {
         // Delete the pet from the database
         await Pet.destroy({ where: { id: petID } });
 
-        res.json({ message: 'Pet has run away!' });
+        res.redirect('/pets');
     } catch (err) {
         res.status(500).json(err);
     }
