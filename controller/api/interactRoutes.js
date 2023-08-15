@@ -103,7 +103,7 @@ router.post('/sleep/:petID', async (req, res) => {
         const updatedPet = decrementStats(pet);
 
         // Update last_slept timestamp
-        updatedPet.interaction.last_slept = currentTime.toISOString();
+        updatedPet.interaction.last_slept = dayjs().toISOString();
 
         // Save the updated pet
         await updatedPet.save();

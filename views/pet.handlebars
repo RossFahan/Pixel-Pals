@@ -1,130 +1,71 @@
-{{!-- <div>
-    <h2>{{name}}</h2>
-</div>
-<div class="container pet-container">
-    <div class="card">
-        <div class="card-image is-small">
-            <figure class="image is-small drop-zone" id="{{animal.preferred_food}}" data-id="{{id}}">
-                {{{get_animal animal.types}}}
-            </figure>
-        </div>
-    </div>
-    <div class="pet-status">
-        <div class="status-bar hunger">
-            <div class="status-fill" id="hunger-fill"></div>
-        </div>
-        <div class="status-bar mood">
-            <div class="status-fill" id="mood-fill"></div>
-        </div>
-        <div class="status-bar energy">
-            <div class="status-fill" id="energy-fill"></div>
-        </div>
-    </div>
-</div>
+<br><br>
 <div class="container">
-    <div class="dropdown">
-        <div class="dropdown-content activity-list">
-            {{{get_food 'Steak'}}}
-            {{{get_food 'Fish'}}}
-            {{{get_food 'Fruit'}}}
-            {{{get_food 'Vegetable'}}}
-            {{{get_food 'Cheese'}}}
-            {{{get_food 'Seeds'}}}
-            {{{get_food 'Mouse'}}}
-        </div>
-    </div>
-    <br>
-    <div class="dropdown">
-        <div class="dropdown-content activity-list">
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Running"}}}
-            </button>
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Petting"}}}
-            </button>
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Swimming"}}}
-            </button>
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Reading"}}}
-            </button>
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Brush"}}}
-            </button>
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Basketball"}}}
-            </button>
-            <button class="activity-list" data-pet-id="{{id}}">
-                {{{get_activity "Motorsports"}}}
-            </button>
-        </div>
-    </div>
-    --}}
-    <br><br>
-    <div class="container">
-        <div class="columns">
-            <div class="column is-half">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image drop-zone" id="{{animal.preferred_food}}" data-id="{{id}}">
-                            {{{get_animal animal.types}}}
-                        </figure>
-                    </div>
-                </div>
-                <p class="pet-name">{{name}}</p>
-            </div>
-            <div class="column is-three-quarters">
-                <div class="pet-status">
-                    <div class="status-bar hunger">
-                        <div class="status-fill" id="hunger-fill"></div>
-                    </div>
-                    <div class="status-bar mood">
-                        <div class="status-fill" id="mood-fill"></div>
-                    </div>
-                    <div class="status-bar energy">
-                        <div class="status-fill" id="energy-fill"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <p class="interaction-title">Food</p>
-                    {{{get_food 'Steak'}}}
-                    {{{get_food 'Fish'}}}
-                    {{{get_food 'Fruit'}}}
-                    {{{get_food 'Vegetable'}}}
-                    {{{get_food 'Cheese'}}}
-                    {{{get_food 'Seeds'}}}
-                    {{{get_food 'Mouse'}}}
-                </div>
-                <div class="container">
-                    <p class="interaction-title">Activity</p>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Running"}}}
-                    </button>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Petting"}}}
-                    </button>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Swimming"}}}
-                    </button>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Reading"}}}
-                    </button>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Brush"}}}
-                    </button>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Basketball"}}}
-                    </button>
-                    <button class="activity-list zoom" data-pet-id="{{id}}">
-                        {{{get_activity "Motorsports"}}}
-                    </button>
-                </div>
-                <div class="container">
-                    <p class="interaction-title">Sleep</p>
-    {{!-- sleep area --}}
+    <div class="columns">
+        <div class="column is-half">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="drop-zone image" id="{{animal.prefered_food}}" data-id="{{id}}">
+                        {{{get_animal animal.types}}}
+                    </figure>
                 </div>
             </div>
+            <p class="pet-name">{{name}}</p>
         </div>
+        <div class="column is-three-quarters">
+            <div class="pet-status">
+                <div class="status-bar hunger">
+                    <div class="status-fill" id="hunger-fill"></div>
+                </div>
+                <div class="status-bar mood">
+                    <div class="status-fill" id="mood-fill"></div>
+                </div>
+                <div class="status-bar energy">
+                    <div class="status-fill" id="energy-fill"></div>
+                </div>
+            </div>
+            <div class="container">
+                <p class="interaction-title">Food</p>
+                {{{get_food 'Steak'}}}
+                {{{get_food 'Fish'}}}
+                {{{get_food 'Fruit'}}}
+                {{{get_food 'Vegetable'}}}
+                {{{get_food 'Cheese'}}}
+                {{{get_food 'Seeds'}}}
+                {{{get_food 'Mouse'}}}
+            </div>
+            <div class="container">
+                <p class="interaction-title">Activity</p>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Running"}}}
+                </button>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Petting"}}}
+                </button>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Swimming"}}}
+                </button>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Reading"}}}
+                </button>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Brush"}}}
+                </button>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Basketball"}}}
+                </button>
+                <button class="activity-list zoom" data-pet-id="{{id}}">
+                    {{{get_activity "Motorsports"}}}
+                </button>
+            </div>
+            <div class="container">
+                <p class="interaction-title">Sleep</p>
+                {{!-- sleep area --}}
+                <button type="button" id="sleep" data-pet-id="{{id}}">Sleep</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="/js/feed.js"></script>
 <script src="/js/play.js"></script>
-<script src="/js/statusbar.js"></script> 
+<script src="/js/sleep.js"></script>
+<script src="/js/statusbar.js"></script>
