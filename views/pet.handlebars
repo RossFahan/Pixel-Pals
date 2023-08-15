@@ -2,7 +2,7 @@
     <h2>{{name}}</h2>
 </div>
 <div class="container">
-    <figure class="drop-zone">
+    <figure class="drop-zone" id="{{animal.prefered_food}}" data-id="{{id}}">
         {{{get_animal animal.types}}}
     </figure>
 </div>
@@ -19,8 +19,28 @@
         </div>
     </div>
 </div>
+
+    <div class="dropdown">
+        <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                Food
+            </button>
+        </div>
+        <div {{!-- class="dropdown-menu" id="dropdown-menu3" role="menu" --}}>
+            <div class={{!-- "dropdown-content" --}}>
+                {{{get_food 'Steak'}}}
+                {{{get_food 'Fish'}}}
+                {{{get_food 'Fruit'}}}
+                {{{get_food 'Vegetable'}}}
+                {{{get_food 'Cheese'}}}
+                {{{get_food 'Seeds'}}}
+                {{{get_food 'Mouse'}}}
+            </div>
+
+        </div>
+    </div>
+
 <div class="container">
-    <button class="draggable-button" type="button">Feed</button>
     <div class="dropdown is-active" id="activity-dropdown">
         <div class="dropdown-trigger">
             <button class="button activity-button" aria-haspopup="true" aria-controls="dropdown-menu2">
@@ -66,7 +86,9 @@
         </div>
         <button type="button">Sleep</button>
     </div>
+   
 
 <script src="/js/feed.js"></script>
 <script src="/js/play.js"></script>
-<script src="/js/statusbar.js"></script>
+{{!--
+<script src="/js/statusbar.js"></script> --}}

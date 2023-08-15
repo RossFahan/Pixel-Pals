@@ -23,19 +23,19 @@ module.exports = {
     get_food: (food) => {
         switch (food) {
             case 'Steak':
-                return '<img src="./public/assets/images/steak.png" alt="steak">';
+                return '<img class="dropdown-ietm draggable-button" id="Steak" src="/assets/images/steak.png" alt="steak">';
             case 'Fish':
-                return '<img src="./public/assets/images/fish.png" alt="fish">';
+                return '<img class="dropdown-ietm draggable-button" id="Fish" src="/assets/images/fish.png" alt="fish">';
             case 'Fruit':
-                return '<img src="./public/assets/images/apple.png" alt="apple">';
+                return '<img class="dropdown-ietm draggable-button" id="Fruit" src="/assets/images/apple.png" alt="apple">';
             case 'Vegetable':
-                return '<img src="./public/assets/images/leafy-green.png" alt="vegetable">';
+                return '<img class="dropdown-ietm draggable-button" id="Vegetable" src="/assets/images/leafy-green.png" alt="vegetable">';
             case 'Cheese':
-                return '<img src="./public/assets/images/cheese.png" alt="cheese">';
+                return '<img class="dropdown-ietm draggable-button" id="Cheese" src="/assets/images/cheese.png" alt="cheese">';
             case 'Seeds':
-                return '<img src="./public/assets/images/seed.png" alt="seeds">';
+                return '<img class="dropdown-ietm draggable-button" id="Seeds" src="/assets/images/seed.png" alt="seeds">';
             case 'Mouse':
-                return '<img src="./public/assets/images/mouse.png" alt="mouse">';
+                return '<img class="dropdown-ietm draggable-button" id="Mouse" src="/assets/images/mouse.png" alt="mouse">';
         }
     },
 

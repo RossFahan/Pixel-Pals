@@ -10,9 +10,9 @@ const MOOD_INCREMENT_WHEN_PLAYED = 15;
 router.post('/feed/:petId', async (req, res) => {
     try {
         const pet = await Pet.findByPk(req.params.petId, {
-            include: Interaction,
+            include: [{ model: Interaction }],
         });
-
+        //console.log(pet)
         if (!pet) {
             return res.status(404).json({ message: 'Pet not found.' });
         }
@@ -21,23 +21,26 @@ router.post('/feed/:petId', async (req, res) => {
 
         // Decrement pet's stats based on time elapsed
         const updatedPet = decrementStats(pet);
-
-
-
+        //console.log("updated pet", updatedPet);
         // Increment pet's hunger when fed
         updatedPet.hunger = Math.min(100, updatedPet.hunger + HUNGER_INCREMENT_WHEN_FED);
 
         // Update last_fed timestamp
+        console.log(updatedPet.interaction)
         updatedPet.interaction.last_fed = dayjs().toISOString();
 
         await updatedPet.save();
 
         // Update last_fed timestamp in Interaction table
         const interaction = await Interaction.findByPk(pet.interaction.id);
-        interaction.last_fed = updatedPet.interaction.last_fed;
-        await interaction.save();
+        if (interaction) {
+            interaction.last_fed = updatedPet.interaction.last_fed;
+            await interaction.save();
+        } else {
+            console.log('Interaction not found.');
+        }
 
-        res.status(200).json(updatedPet, { message: 'Pet fed successfully.' });
+        res.status(200).json(/* updatedPet,  */{ message: 'Pet fed successfully.' });
     } catch (err) {
         res.status(500).json(err);
     }
