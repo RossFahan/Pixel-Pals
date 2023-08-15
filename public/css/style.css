@@ -56,3 +56,23 @@ background-color: transparent;
   background-color: transparent;
   border: none;
 }
+.interaction-title {
+  font-size: 3em;
+  font-family: 'Cherry Bomb One', cursive;
+  color: yellowgreen;
+}
+.pet-name {
+  font-size: 3em;
+  font-family: 'Cherry Bomb One', cursive;
+  color: yellowgreen; 
+  text-align: center;
+}
+/* .zoom {
+  transition: transform .2s; 
+ 
+  margin: 0 auto;
+} */
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
