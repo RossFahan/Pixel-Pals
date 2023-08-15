@@ -48,7 +48,7 @@ router.post('/activity/:petId', async (req, res) => {
         const pet = await Pet.findByPk(req.params.petId, {
             include: Interaction,
         });
-
+        // console.log(pet)
         if (!pet) {
             return res.status(404).json({ message: 'Pet not found.' });
         }
@@ -63,7 +63,7 @@ router.post('/activity/:petId', async (req, res) => {
         updatedPet.mood = Math.min(100, updatedPet.mood + MOOD_INCREMENT_WHEN_PLAYED);
 
         // Update last_played timestamp
-        updatedPet.interaction.last_played = dayjs().toISOString();
+        updatedPet.interaction.last_played = dayjs().toISOString(); 
 
         await updatedPet.save();
 
@@ -71,8 +71,8 @@ router.post('/activity/:petId', async (req, res) => {
         const interaction = await Interaction.findByPk(pet.interaction.id);
         interaction.last_played = updatedPet.interaction.last_played;
         await interaction.save();
-
-        res.status(200).json(updatedPet, { message: 'Pet played with successfully.' });
+        console.log(interaction);
+        res.status(200).json({ message: 'Pet played with successfully.' });
     } catch (err) {
         res.status(500).json(err);
     }

@@ -17,8 +17,8 @@ Interaction.init (
             allowNull: false,
         },
         last_played: {
-            type: 'TIMESTAMP',
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
             allowNull: false,
         },
         last_slept: {

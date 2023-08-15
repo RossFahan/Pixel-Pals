@@ -42,19 +42,19 @@ module.exports = {
     get_activity: (activity) => {
         switch (activity) {
             case 'Running':
-                return '<img src="./public/assets/images/running.png" alt="running">';
+                return '<img src="/assets/images/running.png" alt="running">';
             case 'Petting':
-                return '<img src="./public/assets/images/petting.png" alt="petting">';
+                return '<img src="/assets/images/petting.png" alt="petting">';
             case 'Swimming':
-                return '<img src="./public/assets/images/swimming.png" alt="swimming">';
+                return '<img src="/assets/images/swimming.png" alt="swimming">';
             case 'Reading':
-                return '<img src="./public/assets/images/books.png" alt="reading">';
+                return '<img src="/assets/images/books.png" alt="reading">';
             case 'Brush':
-                return '<img src="./public/assets/images/brush.png" alt="brush">';
+                return '<img src="/assets/images/brush.png" alt="brush">';
             case 'Basketball':
-                return '<img src="./public/assets/images/basketball.png" alt="basketball">';
+                return '<img src="/assets/images/basketball.png" alt="basketball">';
             case 'Motorsports':
-                return '<img src="./public/assets/images/race-car.png" alt="motorsports">';
+                return '<img src="/assets/images/race-car.png" alt="motorsports">';
 
         }
     }
