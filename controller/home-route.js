@@ -76,7 +76,9 @@ router.get('/pets/:id', withAuth, async (req, res) => {
 
     const pet = petData.get({ plain: true });
 
-
+        // Update pet stats and update display of status bars
+        //await decrementStats(pet);
+        //updateStatusBars(pet);
 
     res.render('pet', {
       ...pet,
