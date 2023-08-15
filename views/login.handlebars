@@ -1,38 +1,58 @@
-<h2>Login</h2>
-
-<form class="form login-form">
-    <div class="form-group">
-        <label for="username-login">username:</label>
-        <input class="form-input" type="text" id="username-login" />
+<div class="container p-4 mt-5">
+  <div class="columns">
+    <div class="column is-two-fifths">
+        <p class="hero">Virtual Pet that Sleep, Eat and play</p>
     </div>
-    <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+    <div class="column is-half">
+      {{!-- login form --}}
+      <form class="box login-form">
+        <div class="field">
+          <label class="label"
+            style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Username</label>
+          <div class="control">
+            <input class="input card" type="text" id="username-login" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label"
+            style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Password</label>
+          <div class="control">
+            <input class="input card" type="password" id="password-login" />
+          </div>
+        </div>
+        <button class="button login-button" type="submit">login</button><br>
+        <a class="sign-up-button"
+          style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Sign Up Here!</a>
+      </form>
+      {{!-- Sign up form --}} 
+      <form class="box signup-form" style="display: none;">
+        <div class="field">
+          <label class="label"
+            style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Email</label>
+          <div class="control">
+            <input class="input card" type="email" id="email-signup" required />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label"
+            style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Username</label>
+          <div class="control">
+            <input class="input card" type="text" id="username-signup" required />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label"
+            style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Password</label>
+          <div class="control">
+            <input class="input card" type="password" id="password-signup" required />
+          </div>
+        </div>
+        <button class="btn login-button" type="submit">Signup</button><br>
+        <a class="logged-in-button"
+          style="font-family: 'Cherry Bomb One', cursive; color: yellowgreen; font-size: 2em">Login to your account!</a>
+      </form>
     </div>
-    <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-    </div>
-</form>
-
-<h2>Signup</h2>
-
-<form class="form signup-form">
-  <div class="form-group">
-    <label for="email-signup">Email:</label>
-    <input class="form-input" type="email" id="email-signup" required />
   </div>
-  <div class="form-group">
-    <label for="username-signup">Username:</label>
-    <input class="form-input" type="text" id="username-signup" required />
-  </div>
-  <div class="form-group">
-    <label for="password-signup">Password:</label>
-    <input class="form-input" type="password" id="password-signup" required />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Signup</button>
-  </div>
-</form>
-
+</div>
 <script src="/js/login.js"></script>
 <script src="/js/signup.js"></script>

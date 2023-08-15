@@ -71,8 +71,28 @@ background-color: transparent;
   transition: transform .2s; 
  
   margin: 0 auto;
+}
 } */
 
-.zoom:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+/* .zoom:hover {
+  transform: scale(1.5); (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+.hero {
+  font-size: 7em;
+  font-family: 'Cherry Bomb One', cursive;
+  color: green; 
+  text-align: left;
+}
+.box {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Transparent white background */
+  backdrop-filter: blur(8px);
+  /* Apply blur effect */
+}
+.login-button {
+  font-family: 'Cherry Bomb One', cursive; 
+  font-size: 2em;
+  color: yellowgreen;
+  background-color: #4d2409;
+  border-radius: 3px 3px 3px 3px;
 }
