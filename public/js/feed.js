@@ -27,11 +27,11 @@ interact(dropZone)
   .dropzone({
     ondrop: async function (event) {
       const droppedElement = event.relatedTarget;
-      console.log(droppedElement.id + ' was dropped into ' + dropZone.id);
+      //console.log(droppedElement.id + ' was dropped into ' + dropZone.id);
       const id = dropZone.getAttribute('data-id')
-      console.log(id)
+      //console.log(id)
       if (droppedElement.id == dropZone.id) {
-        console.log('Prefered Food')
+        //console.log('Prefered Food')
         const response = await fetch(`/api/feed/${id}`, {
           method: 'POST',
           headers: {
@@ -40,6 +40,8 @@ interact(dropZone)
         });
         if (response.ok) {
           //document.querySelector('.hunger') = response.hunger
+        } else {
+          alert(response.statusText);
         }
       }
     },
