@@ -48,6 +48,10 @@ function decrementStats(pet) {
         pet.energy = Math.max(0, pet.energy - energyDecrement);
     }
 
+    // Update interaction timestamps to current time
+    pet.interaction.last_fed = currentTime.toISOString();
+    pet.interaction.last_played = currentTime.toISOString();
+    pet.interaction.last_slept = currentTime.toISOString();
 
     if (pet.hunger === 0 || pet.mood === 0 || pet.energy === 0) {
         console.log('Pet is running away!');

@@ -83,8 +83,11 @@ router.get('/pets/:id', withAuth, async (req, res) => {
     console.log('123', updatedPet);
     //updateStatusBars(pet);
     await updatedPet.save();
+    //updateStatusBars(updatedPet);
     const pet = updatedPet.get({ plain: true });
-    
+        updateStatusBars(pet);
+
+
     res.render('pet', {
 
       ...pet,
