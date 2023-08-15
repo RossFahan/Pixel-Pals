@@ -39,7 +39,7 @@ interact(dropZone)
           }
         });
         if (response.ok) {
-          document.querySelector('.hunger') = response.hunger
+          //document.querySelector('.hunger') = response.hunger
         }
       }
     },
