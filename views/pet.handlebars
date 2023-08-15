@@ -19,8 +19,6 @@
         </div>
     </div>
 </div>
-<div>
-    {{!-- <button class="" type="button">Feed</button> --}}
 
     <div class="dropdown">
         <div class="dropdown-trigger">
@@ -42,10 +40,53 @@
         </div>
     </div>
 
-
-    <button class="activity-list" type="button">Play</button>
-    <button type="button">Sleep</button>
-</div>
+<div class="container">
+    <div class="dropdown is-active" id="activity-dropdown">
+        <div class="dropdown-trigger">
+            <button class="button activity-button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                <span>Choose Activity</span>
+                <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-content">
+                <div class="dropdown-item">
+                    <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Running"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                    <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Petting"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                    <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Swimming"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                    <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Reading"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                     <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Brush"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                    <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Basketball"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                    <button class="dropdown-item activity-list" data-pet-id = "{{id}}">
+                        {{{get_activity "Motorsports"}}}
+                    </button>
+                    <hr class="dropdown-divider">
+                </div>
+            </div>
+        </div>
+        <button type="button">Sleep</button>
+    </div>
+   
 
 <script src="/js/feed.js"></script>
 <script src="/js/play.js"></script>
