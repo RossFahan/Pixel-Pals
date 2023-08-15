@@ -1,4 +1,36 @@
 <div class="container">
+    <p class="title is-2 has-text-centered" style="font-family: 'Cherry Bomb One', cursive; font-size: 5em; color: greenyellow">Pet List</p>
+    <form class="user-pet-form">
+      <div class="columns is-multiline is-centered is-mobile is-1">
+        {{#each pets}}
+        <div class="column is-3">
+          <div class="card is-flex is-flex-direction-column is-justify-content-center is-small card-equal-height transparent-blur-card">
+            <div>
+          <figure class="image is-4by3">
+            <a href="/pets/{{id}}">{{{get_animal animal.types}}}</a>
+          </figure>
+            </div>
+             <h3 class="title is-4 has-text-centered">{{name}}</h3>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="container">
     <h2 class="title is-2 has-text-centered">Pets</h2>
     {{#each pets}}
     <form class="user-pet-form">
@@ -12,4 +44,4 @@
       </div>
     </form>
     {{/each}}
-  </div>
+  </div> --}}

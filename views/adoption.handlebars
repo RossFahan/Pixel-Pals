@@ -5,9 +5,6 @@
         <div class="control is-expanded">
           <input class="input" type="text" id="name-adopt" placeholder="Your pet name">
         </div>
-        <div class="control">
-          <a class="button is-info">Adopt</a>
-        </div>
       </div>
       <div class="columns is-multiline is-centered is-mobile is-1">
         {{#each animals}}
@@ -21,8 +18,8 @@
               </figure>
             </div>
             <h3 class="title is-4 has-text-centered">{{types}}</h3>
-            <h3 class="subtitle is-6 has-text-centered">{{prefered_food}}</h3>
-            <h3 class="subtitle is-6 has-text-centered">{{prefered_activity}}</h3>
+            <h3 class="subtitle is-6 has-text-centered">Prefered Food: {{prefered_food}}</h3>
+            <h3 class="subtitle is-6 has-text-centered">Prefered Activity: {{prefered_activity}}</h3>
           </div>
         </div>
         {{/each}}
