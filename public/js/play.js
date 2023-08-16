@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
             'Content-Type': 'application/json'
           }
         });
-        if (response.ok) {
-          const responseData = await response.json();
-          document.querySelector('.mood').textContent = responseData.mood;
-          console.log(responseData)
-        }
+        // if (response.ok) {
+        //   const responseData = await response.json();
+        //   document.querySelector('.mood').textContent = responseData.mood;
+        //   console.log(responseData)
+        // }
       }
     });
   });
