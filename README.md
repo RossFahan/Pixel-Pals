@@ -3,7 +3,7 @@
 ## Description
 Pixel Pets is an interactive web game that lets the user adopt virtaul pet and take care of them. Once they have adopted a pet, the user can then go to the pets page to interact with them. The user can feed their pet, play with their pet, and let their pet rest in order to satisfy their needs. If the does not have its needs fulfiled in within a certain amount of time, the pet will run away.
 
-[Visit the deployed site](https://evening-shore-08297-d73707de49e0.herokuapp.com)
+[Visit the deployed site](https://whispering-fortress-56629-59156f7e4e61.herokuapp.com/pets/1)
 
 ![Page gif](./assets/Pixel%20Pets.gif)
 ## User Stories
