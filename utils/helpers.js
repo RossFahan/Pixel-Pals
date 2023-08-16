@@ -19,7 +19,6 @@ module.exports = {
                 return '<img src="/assets/images/snake.gif" alt="Placeholder image">';
         }
     },
-
     get_food: (food) => {
         switch (food) {
             case 'Steak':
@@ -38,7 +37,6 @@ module.exports = {
                 return '<img class="dropdown-ietm draggable-button zoom" id="Mouse" src="/assets/images/mouse.png" alt="mouse">';
         }
     },
-
     get_activity: (activity) => {
         switch (activity) {
             case 'Running':
