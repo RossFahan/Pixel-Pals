@@ -9,13 +9,13 @@ const ENERGY_INCREMENT_PER_MINUTE_WHEN_SLEEPING = 10;
 
 function decrementStats(pet) {
     const currentTime = dayjs();
-    //console.log('321',pet)
+    
     // Calculate the time difference between interactions and current time in minutes
     const minutesSinceLastFed = currentTime.diff(pet.interaction.last_fed, 'minute');
     const minutesSinceLastPlayed = currentTime.diff(pet.interaction.last_played, 'minute');
     const minutesSinceLastSlept = currentTime.diff(pet.interaction.last_slept, 'minute');
 
-    console.log(`Minutes since last fed: ${minutesSinceLastFed}`);
+    console.log("Minutes since last fed:", minutesSinceLastFed);
     console.log(`Minutes since last played: ${minutesSinceLastPlayed}`);
     console.log(`Minutes since last slept: ${minutesSinceLastSlept}`);
 
@@ -30,7 +30,6 @@ function decrementStats(pet) {
     pet.mood = Math.max(0, pet.mood - moodDecrement);
 
     // Increase energy stat if the pet is sleeping, else decrement
-
     if (pet.is_sleeping && pet.energy > 0) {
         console.log(`Increasing energy due to sleep`);
         pet.energy = Math.min(100, pet.energy + energyIncrement);
@@ -43,22 +42,30 @@ function decrementStats(pet) {
             // Update last_slept timestamp when waking up
             pet.interaction.last_slept = currentTime.toISOString();
         }
-    }
-    else { // Pet not sleeping
+    } else { // Pet not sleeping
         pet.energy = Math.max(0, pet.energy - energyDecrement);
     }
 
     // Update interaction timestamps to current time
+    console.log(`Updating interaction timestamps`);
+    console.log(`Before update - last_fed: ${pet.interaction.last_fed}`);
+    console.log(`Before update - last_played: ${pet.interaction.last_played}`);
+    console.log(`Before update - last_slept: ${pet.interaction.last_slept}`);
+
     pet.interaction.last_fed = currentTime.toISOString();
     pet.interaction.last_played = currentTime.toISOString();
     pet.interaction.last_slept = currentTime.toISOString();
+
+    console.log(`After update - last_fed: ${pet.interaction.last_fed}`);
+    console.log(`After update - last_played: ${pet.interaction.last_played}`);
+    console.log(`After update - last_slept: ${pet.interaction.last_slept}`);
 
     if (pet.hunger === 0 || pet.mood === 0 || pet.energy === 0) {
         console.log('Pet is running away!');
         handleRunaway(pet.id); // Call the handleRunaway function to delete the pet
         return null; // Return null to stop further stat updates
     }
-    //console.log("decrement", pet.dataValues)
+
     return pet;
 }
 

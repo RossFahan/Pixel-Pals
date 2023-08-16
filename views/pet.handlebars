@@ -6,15 +6,18 @@
         {{{get_animal animal.types}}}
     </figure>
 </div>
+
 <div class="container">
     <div class="pet-status">
-        <div class="status-bar hunger">
+        <div class="status-bar hunger" data-hunger="{{ hunger }}">
             <div class="status-fill" id="hunger-fill"></div>
         </div>
-        <div class="status-bar mood">
+
+        <div class="status-bar mood" data-mood="{{ mood }}"> 
             <div class="status-fill" id="mood-fill"></div>
         </div>
-        <div class="status-bar energy">
+        
+        <div class="status-bar energy" data-energy="{{ energy }}"> 
             <div class="status-fill" id="energy-fill"></div>
         </div>
     </div>
@@ -114,9 +117,14 @@
     </div>
         <button type="button">Sleep</button>
     </div>
-   
+
+<script>
+    // Set the values in the window scope
+    window.hunger = {{ hunger }};
+    window.mood = {{ mood }};
+    window.energy = {{ energy }};
+</script>
 
 <script src="/js/feed.js"></script>
 <script src="/js/play.js"></script>
-{{!--
-<script src="/js/statusbar.js"></script> --}}
+<script src="/js/statusbar.js"></script>
