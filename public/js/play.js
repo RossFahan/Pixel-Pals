@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (response.ok) {
         const responseData = await response.json();
-        document.querySelector('.mood').textContent = responseData.hunger;
+        document.querySelector('.mood').textContent = responseData.mood;
       }
     });
   });
