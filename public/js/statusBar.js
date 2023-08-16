@@ -50,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
             energyFillElement.style.backgroundColor = 'green';
         }
     }
-    // Make sure the values are available before updating
-    updateStatusBars();
+
+    // Retrieve the pet ID from the hidden input element
+    const petId = document.getElementById('pet-id').value;
+
+    // Create an interval to update status bars every 5 seconds
+    setInterval(updateStatusBars, 250); // 5000 milliseconds = 5 seconds
 });
