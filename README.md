@@ -46,7 +46,7 @@ Pixel Pets is an interactive web game that lets the user adopt virtaul pet and t
 ### Ross Fahan
 * [GitHub](https://github.com/RossFahan)
 * [LinkedIn](https://www.linkedin.com/in/rossfahan/)
-* [Portfolio]()
+* [Portfolio](https://rossfahan.github.io/my-portfolio/)
 
 ### Ahkar Hein
 * [GitHub](https://github.com/ahkar-hein)
