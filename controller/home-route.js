@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Pet, Animal, Interaction } = require('../models');
 const withAuth = require('../utils/auth');
-//const updateStatusBars = require('../public/js/statusbar');
 const decrementStats = require('../utils/stats');
 
 //Homeroute
@@ -80,7 +79,7 @@ router.get('/pets/:id', withAuth, async (req, res) => {
 
     //Update pet stats and update display of status bars
     const updatedPet = decrementStats(petData);
-    console.log('123', updatedPet);
+
     //updateStatusBars(pet);
     await updatedPet.save();
     const pet = updatedPet.get({ plain: true });

@@ -21,7 +21,7 @@ router.post('/feed/:petId', async (req, res) => {
 
         // Decrement pet's stats based on time elapsed
         const updatedPet = decrementStats(pet);
-        //console.log("updated pet", updatedPet);
+        console.log("updated pet", updatedPet);
         // Increment pet's hunger when fed
         updatedPet.hunger = Math.min(100, updatedPet.hunger + HUNGER_INCREMENT_WHEN_FED);
 
