@@ -1,4 +1,4 @@
-const { Pet, Interaction } = require('../../models');
+const { Pet, Interaction, Animal } = require('../../models');
 const decrementStats = require('../../utils/stats');
 const router = require('express').Router();
 const dayjs = require('dayjs');
@@ -49,9 +49,16 @@ router.post('/feed/:petId', async (req, res) => {
 router.post('/activity/:petId', async (req, res) => {
     try {
         const pet = await Pet.findByPk(req.params.petId, {
-            include: Interaction,
+            include: [
+                {
+                    model: Interaction,
+                },
+                {
+                    model: Animal,
+                }
+            ]
         });
-        // console.log(pet)
+        console.log(pet)
         if (!pet) {
             return res.status(404).json({ message: 'Pet not found.' });
         }

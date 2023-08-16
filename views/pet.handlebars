@@ -12,21 +12,25 @@
             <p class="pet-name">{{name}}</p>
         </div>
         <div class="container">
-            <div class="pet-status">
-                <div class="status-bar hunger" data-hunger="{{ hunger }}">
-                    <div class="status-fill" id="hunger-fill"></div>
-                </div>
-
-                <div class="status-bar mood" data-mood="{{ mood }}">
-                    <div class="status-fill" id="mood-fill"></div>
-                </div>
-
-                <div class="status-bar energy" data-energy="{{ energy }}">
-                    <div class="status-fill" id="energy-fill"></div>
+            <div class="column">
+                <div class="pet-status">
+                    <p>Hunger: </p>
+                    <div class="status-bar hunger" data-hunger="{{ hunger }}">
+                        <div class="status-fill" id="hunger-fill"></div>
+                    </div>
+                    <p>Mood: </p>
+                    <div class="status-bar mood" data-mood="{{ mood }}">
+                        <div class="status-fill" id="mood-fill"></div>
+                    </div>
+                    <p>Energy: </p>
+                    <div class="status-bar energy" data-energy="{{ energy }}">
+                        <div class="status-fill" id="energy-fill"></div>
+                    </div>
                 </div>
             </div>
+            {{!--
         </div>
-        <div class="container">
+        <div class="container"> --}}
             <p class="interaction-title">Food</p>
             {{{get_food 'Steak'}}}
             {{{get_food 'Fish'}}}
@@ -35,36 +39,38 @@
             {{{get_food 'Cheese'}}}
             {{{get_food 'Seeds'}}}
             {{{get_food 'Mouse'}}}
-        </div>
-        <div class="container">
-            <p class="interaction-title">Activity</p>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            {{!--
+        </div> --}}
+        {{!-- <div class="container"> --}}
+        <p class="interaction-title">Activity</p>
+            <button class="activity-list zoom" name="Running" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Running"}}}
             </button>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            <button class="activity-list zoom" name="Petting" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Petting"}}}
             </button>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            <button class="activity-list zoom" name="Swimming" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Swimming"}}}
             </button>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            <button class="activity-list zoom" name="Reading" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Reading"}}}
             </button>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            <button class="activity-list zoom" name="Brush" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Brush"}}}
             </button>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            <button class="activity-list zoom" name="Basketball" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Basketball"}}}
             </button>
-            <button class="activity-list zoom" data-pet-id="{{id}}">
+            <button class="activity-list zoom" name="Motorsports" data-pet-id="{{id}}" data-pet-activity = "{{animal.prefered_activity}}">
                 {{{get_activity "Motorsports"}}}
             </button>
-        </div>
-        <div class="container">
+            {{!--
+        </div> --}}
+        {{!-- <div class="container"> --}}
             <p class="interaction-title">Sleep</p>
             {{!-- sleep area --}}
-            <button type="button" class="animal-button" id="sleep" data-pet-id="{{id}}"><img
-                    src="/assets/images/sleep.png" width="120" height="120"></button>
+            <button type="button" class="animal-button" id="sleep" data-pet-id="{{id}}">
+                <img src="/assets/images/sleep.png" width="120" height="120"></button>
         </div>
     </div>
 </div>
