@@ -9,6 +9,9 @@ Pixel Pets is an interactive web game that lets the user adopt virtaul pet and t
 ![User Stories](./assets/userstory.png)
 
 ## Features
+
+![Page gif](./assets/Pixel%20Pets.gif)
+
 * 8 different virtual pets that the user can take care of
 * Pets tied to users' accounts
 * Pets' stats in the form of bars
