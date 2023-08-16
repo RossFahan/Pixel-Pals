@@ -5,10 +5,14 @@ Pixel Pets is an interactive web game that lets the user adopt virtaul pet and t
 
 [Visit the deployed site](https://evening-shore-08297-d73707de49e0.herokuapp.com)
 
+![Page gif](./assets/Pixel%20Pets.gif)
 ## User Stories
 ![User Stories](./assets/userstory.png)
 
 ## Features
+
+
+
 * 8 different virtual pets that the user can take care of
 * Pets tied to users' accounts
 * Pets' stats in the form of bars
@@ -24,6 +28,7 @@ Pixel Pets is an interactive web game that lets the user adopt virtaul pet and t
 * Drag food to feed your pet
 * Click on activities to play with your pet
 
+![Explore Site](./assets/Pixel%20Pets-2.gif)
 ## Technologies Used
 * HTML (Handlebars)
 *	CSS (Bulma framework)
