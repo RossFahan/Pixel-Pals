@@ -52,5 +52,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // Make sure the values are available before updating
     updateStatusBars();
-
 });

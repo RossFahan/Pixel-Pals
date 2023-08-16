@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (response.ok) {
         const responseData = await response.json();
-        document.querySelector('.mood').textContent = responseData.mood;
+        document.querySelector('.mood').textContent = responseData.hunger;
       }
     });
   });
@@ -23,9 +23,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const activityButton = document.querySelector('.activity-button');
   const activityDropdown = document.querySelector('#activity-dropdown');
 
-  activityButton.addEventListener("click", function() {
-    activityDropdown.classList.toggle("is-active");
-  });
+  if (activityButton && activityDropdown) {
+    activityButton.addEventListener("click", function() {
+      activityDropdown.classList.toggle("is-active");
+    });
+  }
 });
 
 
