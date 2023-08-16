@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const mood = parseInt(window.mood);
     const energy = parseInt(window.energy);
 
-    console.log("ener", energy);
-
     function updateStatusBars() {
         updateHungerBar(hunger);
         updateMoodBar(mood);
@@ -13,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateHungerBar(hungerLevel) {
         const hungerFillElement = document.getElementById('hunger-fill');
-        console.log(hungerLevel)
 
         hungerFillElement.style.width = `${hungerLevel}%`;
 
