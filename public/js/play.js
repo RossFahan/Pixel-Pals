@@ -5,26 +5,26 @@ document.addEventListener("DOMContentLoaded", function() {
     button.addEventListener('click', async (event) => {
       
       const id = button.getAttribute('data-pet-id');
-      
-      const response = await fetch(`/api/activity/${id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const activityName = button.getAttribute('name');
+      const preferedActivity = button.getAttribute('data-pet-activity');
 
-      if (response.ok) {
-        const responseData = await response.json();
-        document.querySelector('.mood').textContent = responseData.mood;
+      if (activityName != preferedActivity){
+        alert('Choose Correct Activity')
+      }
+      else {
+        const response = await fetch(`/api/activity/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.ok) {
+          const responseData = await response.json();
+          document.querySelector('.mood').textContent = responseData.mood;
+          console.log(responseData)
+        }
       }
     });
-  });
-
-  const activityButton = document.querySelector('.activity-button');
-  const activityDropdown = document.querySelector('#activity-dropdown');
-
-  activityButton.addEventListener("click", function() {
-    activityDropdown.classList.toggle("is-active");
   });
 });
 
